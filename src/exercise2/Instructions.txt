@@ -1,0 +1,74 @@
+Exercise 2
+==========
+
+This is a little game that will pick a random number and have you try to guess it. It should have several features that 
+I have disabled. It will be your job to fix the code so that it all works as it should. I have written some tests which 
+will pass as you get each of the features working as they should.
+
+Before we start you should take a look at the code. There are three classes:
+    PlayGame - is a very simple class with a main method that runs the game when you run it as an application.
+    GuessingGame - this is the main class where all the code is.
+    TestGuess - these are the tests.
+
+STEP 0
+------    
+Try running PlayGame by Left click on PlayGame to select it. Then from the top menu select Run -> Run As -> Java Application. 
+You can see it works but its a bit limited. You will be working on adding the following features:
+  1. Change the code so that the play method returns "true" when the user wins
+  2. Change it to give you three goes instead of one
+  3. Add an option at the end to play again
+  4. Keep a score of how many games you have won
+
+Next run the tests. Left click on TestGuessingGame to select it then from the top menu select Run -> Run As -> JUnit Test
+You will get a new panel come up called JUnit that shows you the results of the test. All four tests will fail, showing
+up as little black 'X's clicking on one of the tests will show you details in the "Failure Trace" area. I have put messages
+in each one to help you fis them but I will write the instructions here to so you have different places to go to help you 
+solve this.
+
+Take a look at the code. PlayGame is pretty simple, it just creates a new "GuessingGame" object and calls it. Then read through
+GuessingGame itself. There is a lot more code here and some of it you may not be able to understand - that's OK. Take your time
+to go through it and see how much you can understand. Look out for bits that don't make sense and make a list of questions for me. 
+I would like you to find at least 3 questions to ask.
+
+STEP 1 - play method returns "true" when the user wins
+------------------------------------------------------
+
+Look at the return value of the method play(). The value is returned on line 31. There is an ACTION comment on line 30 to help 
+you. Replace the return value with the result of the users guess, which is stored in the variable "theyGuessedIt". When you have 
+made the change, rerun the tests. If you have made the change correctly you should see the first test pass, it will have a green 
+check mark instead of a black cross.
+
+STEP 2 - three goes instead of one
+----------------------------------
+
+This exercise is to modify GuessingGame to give 3 goes instead of just 1 ion each game. To do this go to the "ACTION:" comment 
+on line 30. At this point in the code you need to put a loop in. You will need to declare a new variable e.g. 
+"int guessNumber = 1;" and then construct a while() loop that will keep looping until either the user has had all their guesses 
+or the got the right answer in which case theyGuessedIt== true. Take a look at the blast off code for examples how to 
+do this. If you make the changes correctly the next test will start to pass. By the way you should pass the guessNumber into
+the call to readGuess() so that it can print out the right number to the user. Run the code as an application (using PlayGame) 
+to see it it works as you would expect.
+
+STEP 3 - Option to play again
+-----------------------------
+
+There is already a method in place called playAgain() to help you with this. This method asks the user if they want to play
+again and takes their answer. The method returns "true" of they do want to play again (and false otherwise). What you need
+to do is to construct another loop in play() around the one you have already built that keeps the user looping back to the
+start until they decide to quit. Run the tests to check if you have got it right. If you have the third test should pass.
+Also try running the game and see if it works for you in practice.
+
+STEP 4 - Keeping score
+----------------------
+
+There is already a variable "score" to track this. It is declared outside the methods so it keeps its value between them.
+Look at the method 'checkGuess' there is an ACTION line in here. At that point in the code you need to increment "score".
+Again run the test to see the 4th test pass also run the code as an application and check it works the way you would expect
+
+BONUS - Track number of games
+-----------------------------
+
+Having "score" is good, but it really needs to say how many games you had to play to get that score. This last exercises
+is to modify the code so that it also counts to number of games that the user played and when it prints out the score
+or the final score it includes the number of games, e.g. "Your score is 5 out of 7 games played".
+
